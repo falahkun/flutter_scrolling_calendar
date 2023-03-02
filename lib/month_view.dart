@@ -17,6 +17,7 @@ class MonthView extends StatelessWidget {
     this.onTap,
     this.titleStyle =
         const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+    this.highlightStyle,
   });
 
   final BuildContext context;
@@ -29,9 +30,10 @@ class MonthView extends StatelessWidget {
   final List<String>? monthNames;
   final Function? onTap;
   final TextStyle? titleStyle;
+  final TextStyle? highlightStyle;
 
-  Color getDayNumberColor(DateTime date) {
-    Color color = Colors.transparent;
+  Color? getDayNumberColor(DateTime date) {
+    Color? color;
     if (isCurrentDate(date)) {
       color = currentDateColor;
     } else if (highlightedDates != null &&
@@ -49,7 +51,7 @@ class MonthView extends StatelessWidget {
     final int firstWeekdayOfMonth = DateTime(year, month, 1).weekday;
 
     for (int day = 2 - firstWeekdayOfMonth; day <= daysInMonth; day++) {
-      Color color = Colors.transparent;
+      Color? color;
       if (day > 0) {
         color = getDayNumberColor(DateTime(year, month, day));
       }
@@ -79,6 +81,11 @@ class MonthView extends StatelessWidget {
   }
 
   Widget buildMonthView(BuildContext context) {
+    final DateTime _now = DateTime.now();
+    final int _year = _now.year;
+    final int _month = _now.month;
+
+    final bool isHighlighted = year == _year && month == _month;
     return Container(
       width: 7 * getDayNumberSize(context),
       margin: EdgeInsets.all(padding),
@@ -89,6 +96,7 @@ class MonthView extends StatelessWidget {
             month: month,
             monthNames: monthNames,
             style: titleStyle,
+            highlightStyle: isHighlighted ? highlightStyle : TextStyle(),
           ),
           Container(
             margin: const EdgeInsets.only(top: 8.0),

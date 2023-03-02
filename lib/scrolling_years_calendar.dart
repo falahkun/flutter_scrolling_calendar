@@ -16,6 +16,7 @@ class ScrollingYearsCalendar extends StatefulWidget {
     this.monthNames,
     this.onMonthTap,
     this.monthTitleStyle,
+    this.highlightStyle
   })  : assert(!initialDate.isBefore(firstDate),
             'initialDate must be on or after firstDate'),
         assert(!initialDate.isAfter(lastDate),
@@ -38,6 +39,8 @@ class ScrollingYearsCalendar extends StatefulWidget {
   final List<String>? monthNames;
   final Function? onMonthTap;
   final TextStyle? monthTitleStyle;
+  final TextStyle? highlightStyle;
+
 
   @override
   _ScrollingYearsCalendarState createState() => _ScrollingYearsCalendarState();
@@ -55,6 +58,7 @@ class _ScrollingYearsCalendarState extends State<ScrollingYearsCalendar> {
       monthNames: widget.monthNames,
       onMonthTap: widget.onMonthTap,
       monthTitleStyle: widget.monthTitleStyle,
+      highlightStyle: widget.highlightStyle,
     );
   }
 

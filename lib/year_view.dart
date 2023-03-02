@@ -13,6 +13,7 @@ class YearView extends StatelessWidget {
     this.monthNames,
     this.onMonthTap,
     this.monthTitleStyle,
+    this.highlightStyle,
   });
 
   final BuildContext context;
@@ -23,8 +24,10 @@ class YearView extends StatelessWidget {
   final List<String>? monthNames;
   final Function? onMonthTap;
   final TextStyle? monthTitleStyle;
+  final TextStyle? highlightStyle;
 
-  double get horizontalMargin => 16.0;
+  double get horizontalMargin => 24.0;
+
   double get monthViewPadding => 8.0;
 
   Widget buildYearMonths(BuildContext context) {
@@ -44,6 +47,7 @@ class YearView extends StatelessWidget {
           monthNames: monthNames,
           onTap: onMonthTap,
           titleStyle: monthTitleStyle,
+          highlightStyle: highlightStyle,
         ),
       );
 
@@ -77,7 +81,10 @@ class YearView extends StatelessWidget {
               horizontal: horizontalMargin,
               vertical: 0.0,
             ),
-            child: YearTitle(year),
+            child: YearTitle(year,
+                highlightStyle: DateTime.now().year == year
+                    ? highlightStyle ?? const TextStyle()
+                    : const TextStyle()),
           ),
           Container(
             margin: EdgeInsets.only(

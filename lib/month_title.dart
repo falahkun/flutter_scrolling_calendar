@@ -9,18 +9,20 @@ class MonthTitle extends StatelessWidget {
       fontSize: 18,
       fontWeight: FontWeight.w600,
     ),
+    this.highlightStyle,
   });
 
   final int month;
   final List<String>? monthNames;
   final TextStyle? style;
+  final TextStyle? highlightStyle;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Text(
         getMonthName(month, monthNames: monthNames),
-        style: style,
+        style: month == DateTime.now().month ? highlightStyle : style,
         maxLines: 1,
         overflow: TextOverflow.fade,
         softWrap: false,
