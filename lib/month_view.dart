@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:scrolling_years_calendar_nullsafety/day_number.dart';
+import 'package:scrolling_years_calendar_nullsafety/month_title.dart';
 import 'package:scrolling_years_calendar_nullsafety/utils/dates.dart';
 import 'package:scrolling_years_calendar_nullsafety/utils/screen_sizes.dart';
-import 'package:scrolling_years_calendar_nullsafety/month_title.dart';
-import 'package:scrolling_years_calendar_nullsafety/day_number.dart';
 
 class MonthView extends StatelessWidget {
   const MonthView({
@@ -96,7 +96,7 @@ class MonthView extends StatelessWidget {
             month: month,
             monthNames: monthNames,
             style: titleStyle,
-            highlightStyle: isHighlighted ? highlightStyle : TextStyle(),
+            highlightStyle: isHighlighted ? highlightStyle : const TextStyle(),
           ),
           Container(
             margin: const EdgeInsets.only(top: 8.0),

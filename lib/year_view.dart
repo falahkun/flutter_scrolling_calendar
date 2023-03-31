@@ -54,7 +54,7 @@ class YearView extends StatelessWidget {
       if (month % 3 == 0) {
         monthRows.add(
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: List<MonthView>.from(monthRowChildren),
           ),

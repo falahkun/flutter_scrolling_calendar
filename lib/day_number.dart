@@ -13,7 +13,6 @@ class DayNumber extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double size = getDayNumberSize(context);
-
     return Container(
       width: size,
       height: size,
@@ -29,7 +28,7 @@ class DayNumber extends StatelessWidget {
         textAlign: TextAlign.center,
         style: TextStyle(
           color: color != null ? Colors.white : Colors.black87,
-          fontSize: screenSize(context) == ScreenSizes.small ? 8.0 : 10.0,
+          fontSize: screenSize(context) == ScreenSizes.small ? 8.0 : 8.0,
           fontWeight: FontWeight.normal,
         ),
       ),
